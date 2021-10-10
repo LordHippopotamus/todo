@@ -15,13 +15,7 @@ export default function TodoListItem(props) {
 }
 
 TodoListItem.propTypes = {
-  name: PropTypes.string,
-  identifier: PropTypes.number,
-  // eslint-disable-next-line react/require-default-props
-  removeTodoListItem: PropTypes.func,
-};
-
-TodoListItem.defaultProps = {
-  name: 'Todo item',
-  identifier: 0,
+  name: PropTypes.string.isRequired,
+  identifier: PropTypes.number.isRequired,
+  removeTodoListItem: PropTypes.func.isRequired,
 };

@@ -47,6 +47,5 @@ export default class TodoForm extends React.Component {
 }
 
 TodoForm.propTypes = {
-  // eslint-disable-next-line react/require-default-props
   addTodoListItem: PropTypes.func.isRequired,
 };

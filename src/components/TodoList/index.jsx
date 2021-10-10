@@ -28,11 +28,6 @@ TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-  })),
-  // eslint-disable-next-line react/require-default-props
-  removeTodoListItem: PropTypes.func,
-};
-
-TodoList.defaultProps = {
-  todos: [],
+  })).isRequired,
+  removeTodoListItem: PropTypes.func.isRequired,
 };
