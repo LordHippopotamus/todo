@@ -12,6 +12,7 @@ export default class App extends React.Component {
     };
 
     this.addTodoListItem = this.addTodoListItem.bind(this);
+    this.removeTodoListItem = this.removeTodoListItem.bind(this);
   }
 
   addTodoListItem(recivedName) {
@@ -28,6 +29,15 @@ export default class App extends React.Component {
     });
   }
 
+  removeTodoListItem(recivedId) {
+    this.setState((state) => {
+      const newTodos = state.todos.slice();
+      const index = newTodos.findIndex((el) => el.id === recivedId);
+      newTodos.splice(index, 1);
+      return { todos: newTodos };
+    });
+  }
+
   render() {
     const { todos } = this.state;
 
@@ -35,7 +45,7 @@ export default class App extends React.Component {
       <Container className="bg-light p-4 my-5">
         <TodoForm addTodoListItem={this.addTodoListItem} />
         <hr className="my-3" />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} removeTodoListItem={this.removeTodoListItem} />
       </Container>
     );
   }
