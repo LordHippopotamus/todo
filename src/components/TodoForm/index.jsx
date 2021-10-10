@@ -22,6 +22,7 @@ export default class TodoForm extends React.Component {
     const { addTodoListItem } = this.props;
     const { name } = this.state;
     addTodoListItem(name);
+    this.setState({ name: '' });
   }
 
   render() {
