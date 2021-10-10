@@ -6,11 +6,15 @@ import TodoListItem from '../TodoListItem';
 export default function TodoList(props) {
   const { todos } = props;
 
-  return (
-    <ListGroup>
-      {todos.map((el) => <TodoListItem name={el.name} key={el.id} />)}
-    </ListGroup>
-  );
+  if (todos.length) {
+    return (
+      <ListGroup>
+        {todos.map((el) => <TodoListItem name={el.name} key={el.id} />)}
+      </ListGroup>
+    );
+  }
+
+  return <div>Nothing to do</div>;
 }
 
 TodoList.propTypes = {
