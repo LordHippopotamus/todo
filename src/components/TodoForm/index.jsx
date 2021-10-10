@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
 
 export default class TodoForm extends React.Component {
@@ -9,17 +10,25 @@ export default class TodoForm extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const { addTodoListItem } = this.props;
+    const { name } = this.state;
+    addTodoListItem(name);
+  }
+
   render() {
     const { name } = this.state;
 
     return (
-      <Form className="d-flex">
+      <Form className="d-flex" onSubmit={this.handleSubmit}>
         <Form.Control
           type="text"
           placeholder="What needs to be done?"
@@ -35,3 +44,8 @@ export default class TodoForm extends React.Component {
     );
   }
 }
+
+TodoForm.propTypes = {
+  // eslint-disable-next-line react/require-default-props
+  addTodoListItem: PropTypes.func.isRequired,
+};

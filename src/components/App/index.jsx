@@ -7,21 +7,25 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [
-        {
-          id: 0,
-          name: 'Todo item',
-        },
-        {
-          id: 1,
-          name: 'Todo item',
-        },
-        {
-          id: 2,
-          name: 'Todo item',
-        },
-      ],
+      todos: [],
+      id: 0,
     };
+
+    this.addTodoListItem = this.addTodoListItem.bind(this);
+  }
+
+  addTodoListItem(recivedName) {
+    this.setState((state) => {
+      const newTodos = state.todos.slice();
+      newTodos.push({
+        id: state.id,
+        name: recivedName,
+      });
+      return {
+        todos: newTodos,
+        id: state.id + 1,
+      };
+    });
   }
 
   render() {
@@ -29,7 +33,7 @@ export default class App extends React.Component {
 
     return (
       <Container className="bg-light p-4 my-5">
-        <TodoForm />
+        <TodoForm addTodoListItem={this.addTodoListItem} />
         <hr className="my-3" />
         <TodoList todos={todos} />
       </Container>
