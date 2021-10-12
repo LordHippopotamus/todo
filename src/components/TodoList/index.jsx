@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ListGroup } from 'react-bootstrap';
+import { Accordion } from 'react-bootstrap';
 import TodoListItem from '../TodoListItem';
 
 export default function TodoList(props) {
@@ -8,7 +8,7 @@ export default function TodoList(props) {
 
   if (todos.length) {
     return (
-      <ListGroup>
+      <Accordion>
         {todos.map((el) => (
           <TodoListItem
             name={el.name}
@@ -17,7 +17,7 @@ export default function TodoList(props) {
             removeTodoListItem={removeTodoListItem}
           />
         ))}
-      </ListGroup>
+      </Accordion>
     );
   }
 
