@@ -37,6 +37,7 @@ export default class TodoForm extends React.Component {
           name="name"
           value={name}
           onChange={this.handleChange}
+          required
         />
         <Button variant="primary" type="submit">
           Add
