@@ -15,12 +15,13 @@ export default class App extends React.Component {
     this.removeTodoListItem = this.removeTodoListItem.bind(this);
   }
 
-  addTodoListItem(recivedName) {
+  addTodoListItem(recivedName, recivedDescription) {
     this.setState((state) => {
       const newTodos = state.todos.slice();
       newTodos.push({
         id: state.id,
         name: recivedName,
+        description: recivedDescription,
       });
       return {
         todos: newTodos,

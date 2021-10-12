@@ -7,6 +7,7 @@ export default class TodoForm extends React.Component {
     super(props);
     this.state = {
       name: '',
+      description: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -20,9 +21,12 @@ export default class TodoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const { addTodoListItem } = this.props;
-    const { name } = this.state;
-    addTodoListItem(name);
-    this.setState({ name: '' });
+    const { name, description } = this.state;
+    addTodoListItem(name, description);
+    this.setState({
+      name: '',
+      description: '',
+    });
   }
 
   render() {
