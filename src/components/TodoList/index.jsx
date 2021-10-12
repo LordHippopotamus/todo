@@ -12,6 +12,7 @@ export default function TodoList(props) {
         {todos.map((el) => (
           <TodoListItem
             name={el.name}
+            description={el.description}
             key={el.id}
             identifier={el.id}
             removeTodoListItem={removeTodoListItem}
@@ -28,6 +29,7 @@ TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
   })).isRequired,
   removeTodoListItem: PropTypes.func.isRequired,
 };
