@@ -30,19 +30,34 @@ export default class TodoForm extends React.Component {
   }
 
   render() {
-    const { name } = this.state;
+    const { name, description } = this.state;
 
     return (
-      <Form className="d-flex" onSubmit={this.handleSubmit}>
-        <Form.Control
-          type="text"
-          placeholder="What needs to be done?"
-          className="me-2"
-          name="name"
-          value={name}
-          onChange={this.handleChange}
-          required
-        />
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Group className="mb-3" controlId="name">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="What needs to be done?"
+            name="name"
+            value={name}
+            onChange={this.handleChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="description">
+          <Form.Label>Description</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            placeholder="Optional todo description"
+            name="description"
+            value={description}
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+
         <Button variant="primary" type="submit">
           Add
         </Button>
