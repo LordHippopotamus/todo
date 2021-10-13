@@ -13,6 +13,7 @@ export default function TodoList(props) {
           <TodoListItem
             name={el.name}
             description={el.description}
+            color={el.color}
             key={el.id}
             identifier={el.id}
             removeTodoListItem={removeTodoListItem}
@@ -30,6 +31,7 @@ TodoList.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
   })).isRequired,
   removeTodoListItem: PropTypes.func.isRequired,
 };

@@ -1,0 +1,9 @@
+.todo-list-item-color {
+    height: 12px;
+    width: 12px;
+    border-radius: 12px;
+}
+
+.accordion-button::after {
+    margin-left: 0;
+}
