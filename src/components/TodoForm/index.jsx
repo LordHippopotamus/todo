@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
+import './TodoForm.css';
 
 export default class TodoForm extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ export default class TodoForm extends React.Component {
     this.state = {
       name: '',
       description: '',
+      color: '#000',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,7 +32,7 @@ export default class TodoForm extends React.Component {
   }
 
   render() {
-    const { name, description } = this.state;
+    const { name, description, color } = this.state;
 
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -55,6 +57,17 @@ export default class TodoForm extends React.Component {
             name="description"
             value={description}
             onChange={this.handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="color">
+          <Form.Label>Color</Form.Label>
+          <Form.Control
+            type="color"
+            name="color"
+            value={color}
+            onChange={this.handleChange}
+            required
           />
         </Form.Group>
 
