@@ -14,7 +14,7 @@ export default function TodoListItem(props) {
   return (
     <Accordion.Item eventKey={identifier}>
       <Accordion.Header>
-        {name}
+        <span className="w-100">{name}</span>
         <div className="todo-list-item-color ms-auto me-2" style={{ backgroundColor: color }} />
       </Accordion.Header>
       <Accordion.Body className="d-flex flex-column align-items-start">
