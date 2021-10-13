@@ -3,7 +3,7 @@
 It's a simpe todo list created with react.
 
 Now you can:
-- create new task with a name and description
+- create new task with a name, description and color
 - see your tasks
 - done your tasks
 
