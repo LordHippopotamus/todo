@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
-import './TodoForm.css';
 
 export default class TodoForm extends React.Component {
   constructor(props) {
@@ -23,8 +22,8 @@ export default class TodoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const { addTodoListItem } = this.props;
-    const { name, description } = this.state;
-    addTodoListItem(name, description);
+    const { name, description, color } = this.state;
+    addTodoListItem(name, description, color);
     this.setState({
       name: '',
       description: '',
