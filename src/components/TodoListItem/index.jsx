@@ -11,15 +11,17 @@ export default function TodoListItem(props) {
     identifier,
     removeTodoListItem,
   } = props;
+
   return (
-    <Accordion.Item eventKey={identifier}>
-      <Accordion.Header>
-        <span className="w-100">{name}</span>
-        <div className="todo-list-item-color ms-auto me-2" style={{ backgroundColor: color }} />
-      </Accordion.Header>
+    <Accordion.Item
+      eventKey={identifier}
+      className={`mb-2 accordion-${color}`}
+      style={{ border: `1px solid var(--bs-${color})` }}
+    >
+      <Accordion.Header><span className="w-100">{name}</span></Accordion.Header>
       <Accordion.Body className="d-flex flex-column align-items-start">
         <p>{description || 'This todo has not description'}</p>
-        <Button variant="outline-success" onClick={() => removeTodoListItem(identifier)}>
+        <Button variant={`outline-${color}`} onClick={() => removeTodoListItem(identifier)}>
           Done
         </Button>
       </Accordion.Body>
