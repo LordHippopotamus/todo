@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/components/TodoListItem/TodoListItem.css"],"names":[],"mappings":"AAAA,sBACI,WAAY,CACZ,UAAW,CACX,kBACJ,CAEA,wBACI,aACJ","file":"main.47dc7227.chunk.css","sourcesContent":[".todo-list-item-color {\n    height: 12px;\n    width: 12px;\n    border-radius: 12px;\n}\n\n.accordion-button::after {\n    margin-left: 0;\n}"]}
