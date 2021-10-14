@@ -8,7 +8,7 @@ export default class TodoForm extends React.Component {
     this.state = {
       name: '',
       description: '',
-      color: '#000',
+      color: 'dark',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -59,16 +59,14 @@ export default class TodoForm extends React.Component {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="color">
-          <Form.Label>Color</Form.Label>
-          <Form.Control
-            type="color"
-            name="color"
-            value={color}
-            onChange={this.handleChange}
-            required
-          />
-        </Form.Group>
+        <Form.Label>Color</Form.Label>
+        <Form.Select className="mb-3" name="color" value={color} onChange={this.handleChange}>
+          <option value="dark">Dark</option>
+          <option value="secondary">Gray</option>
+          <option value="primary">Blue</option>
+          <option value="success">Green</option>
+          <option value="danger">Red</option>
+        </Form.Select>
 
         <Button variant="primary" type="submit">
           Add
