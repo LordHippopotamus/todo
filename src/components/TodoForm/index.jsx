@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button } from 'react-bootstrap';
+import {
+  Form, Button, Row, Col,
+} from 'react-bootstrap';
 
 export default class TodoForm extends React.Component {
   constructor(props) {
@@ -9,6 +11,7 @@ export default class TodoForm extends React.Component {
       name: '',
       description: '',
       color: 'dark',
+      finish: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,8 +25,10 @@ export default class TodoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const { addTodoListItem } = this.props;
-    const { name, description, color } = this.state;
-    addTodoListItem(name, description, color);
+    const {
+      name, description, color, finish,
+    } = this.state;
+    addTodoListItem(name, description, color, finish);
     this.setState({
       name: '',
       description: '',
@@ -31,7 +36,9 @@ export default class TodoForm extends React.Component {
   }
 
   render() {
-    const { name, description, color } = this.state;
+    const {
+      name, description, color, finish,
+    } = this.state;
 
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -67,6 +74,22 @@ export default class TodoForm extends React.Component {
           <option value="success">Green</option>
           <option value="danger">Red</option>
         </Form.Select>
+
+        <Form.Group className="mb-3" controlId="description">
+          <Row>
+            <Form.Label column lg={1}>Finish in:</Form.Label>
+            <Col>
+              <Form.Control
+                className="w-auto"
+                type="time"
+                name="finish"
+                value={finish}
+                onChange={this.handleChange}
+                required
+              />
+            </Col>
+          </Row>
+        </Form.Group>
 
         <Button variant="primary" type="submit">
           Add

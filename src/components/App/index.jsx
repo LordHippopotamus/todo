@@ -15,7 +15,7 @@ export default class App extends React.Component {
     this.removeTodoListItem = this.removeTodoListItem.bind(this);
   }
 
-  addTodoListItem(recivedName, recivedDescription, recivedColor) {
+  addTodoListItem(recivedName, recivedDescription, recivedColor, recivedFinish) {
     this.setState((state) => {
       const newTodos = state.todos.slice();
       newTodos.push({
@@ -23,6 +23,7 @@ export default class App extends React.Component {
         name: recivedName,
         description: recivedDescription,
         color: recivedColor,
+        finish: recivedFinish,
       });
       return {
         todos: newTodos,
