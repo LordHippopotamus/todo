@@ -8,6 +8,7 @@ export default function TodoListItem(props) {
     name,
     description,
     color,
+    finish,
     identifier,
     removeTodoListItem,
   } = props;
@@ -21,6 +22,10 @@ export default function TodoListItem(props) {
       <Accordion.Header><span className="w-100">{name}</span></Accordion.Header>
       <Accordion.Body className="d-flex flex-column align-items-start">
         <p>{description || 'This todo has not description'}</p>
+        <p>
+          Finish in:
+          {` ${finish}`}
+        </p>
         <Button variant={`outline-${color}`} onClick={() => removeTodoListItem(identifier)}>
           Done
         </Button>
@@ -33,6 +38,7 @@ TodoListItem.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
+  finish: PropTypes.string.isRequired,
   identifier: PropTypes.number.isRequired,
   removeTodoListItem: PropTypes.func.isRequired,
 };
