@@ -24,11 +24,16 @@ export default class TodoForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
     const { addTodoListItem } = this.props;
     const {
       name, description, color, finish,
     } = this.state;
-    addTodoListItem(name, description, color, finish);
+
+    addTodoListItem({
+      name, description, color, finish,
+    });
+
     this.setState({
       name: '',
       description: '',
