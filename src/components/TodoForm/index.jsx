@@ -37,6 +37,8 @@ export default class TodoForm extends React.Component {
     this.setState({
       name: '',
       description: '',
+      finish: '',
+      color: 'dark',
     });
   }
 
