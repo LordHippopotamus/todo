@@ -6,25 +6,25 @@ import TodoListItem from '../TodoListItem';
 export default function TodoList(props) {
   const { todos, removeTodoListItem } = props;
 
-  if (todos.length) {
-    return (
-      <Accordion>
-        {todos.map((el) => (
-          <TodoListItem
-            name={el.name}
-            description={el.description}
-            color={el.color}
-            finish={el.finish}
-            key={el.id}
-            identifier={el.id}
-            removeTodoListItem={removeTodoListItem}
-          />
-        ))}
-      </Accordion>
-    );
-  }
+  const list = (
+    <Accordion>
+      {todos.map((el) => (
+        <TodoListItem
+          name={el.name}
+          description={el.description}
+          color={el.color}
+          finish={el.finish}
+          key={el.id}
+          identifier={el.id}
+          removeTodoListItem={removeTodoListItem}
+        />
+      ))}
+    </Accordion>
+  );
 
-  return <div>Nothing to do</div>;
+  const emptyList = <div>Nothing to do</div>;
+
+  return todos.length ? list : emptyList;
 }
 
 TodoList.propTypes = {
