@@ -14,7 +14,7 @@ Clone repository
 
 Install dependencies(make sure you have node js installed)
 
-    git install
+    npm install
 
 Run it
 
