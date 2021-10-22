@@ -12,6 +12,8 @@ export default function TodoListItem(props) {
     finish,
     identifier,
     removeTodoListItem,
+    warning,
+    danger,
   } = props;
 
   return (
@@ -22,7 +24,7 @@ export default function TodoListItem(props) {
     >
       <Accordion.Header>
         <span className="w-100">{name}</span>
-        <TimeMessage />
+        <TimeMessage warning={warning} danger={danger} />
       </Accordion.Header>
 
       <Accordion.Body className="d-flex flex-column align-items-start">
@@ -44,6 +46,8 @@ TodoListItem.propTypes = {
   description: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   finish: PropTypes.string.isRequired,
+  warning: PropTypes.bool.isRequired,
+  danger: PropTypes.bool.isRequired,
   identifier: PropTypes.number.isRequired,
   removeTodoListItem: PropTypes.func.isRequired,
 };
