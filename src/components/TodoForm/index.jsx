@@ -74,7 +74,7 @@ export default class TodoForm extends React.Component {
         </Form.Group>
 
         <Row className="mb-3">
-          <Form.Label column lg={1}>Color</Form.Label>
+          <Form.Label column lg={1}>Color:</Form.Label>
           <Col>
             <Form.Select className="w-auto" name="color" value={color} onChange={this.handleChange}>
               <option value="dark">Dark</option>
