@@ -22,7 +22,7 @@ export default function TodoListItem(props) {
     >
       <Accordion.Header>
         <span className="w-100">{name}</span>
-        <TimeMessage finish={finish} />
+        <TimeMessage />
       </Accordion.Header>
 
       <Accordion.Body className="d-flex flex-column align-items-start">
