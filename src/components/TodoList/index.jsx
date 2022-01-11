@@ -14,7 +14,7 @@ export default function TodoList(props) {
           description={el.description}
           color={el.color}
           key={el.id}
-          identifier={el.id}
+          id={el.id}
           removeTodoListItem={removeTodoListItem}
         />
       ))}

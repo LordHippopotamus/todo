@@ -8,13 +8,13 @@ export default function TodoListItem(props) {
     name,
     description,
     color,
-    identifier,
+    id,
     removeTodoListItem,
   } = props;
 
   return (
     <Accordion.Item
-      eventKey={identifier}
+      eventKey={id}
       className={`mb-2 accordion-${color}`}
       style={{ border: `1px solid var(--bs-${color})` }}
     >
@@ -24,7 +24,7 @@ export default function TodoListItem(props) {
 
       <Accordion.Body className="d-flex flex-column align-items-start">
         <p>{description || 'This todo has not description'}</p>
-        <Button variant={`outline-${color}`} onClick={() => removeTodoListItem(identifier)}>
+        <Button variant={`outline-${color}`} onClick={() => removeTodoListItem(id)}>
           Done
         </Button>
       </Accordion.Body>
@@ -36,6 +36,6 @@ TodoListItem.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
-  identifier: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
   removeTodoListItem: PropTypes.func.isRequired,
 };
