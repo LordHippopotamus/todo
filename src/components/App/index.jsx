@@ -18,12 +18,7 @@ export default class App extends React.Component {
   addTodoListItem(parametrs) {
     this.setState((state) => {
       const newTodos = state.todos.slice();
-      newTodos.push({
-        id: state.id,
-        name: parametrs.name,
-        description: parametrs.description,
-        color: parametrs.color,
-      });
+      newTodos.push({ ...parametrs });
       return {
         todos: newTodos,
         id: state.id + 1,
