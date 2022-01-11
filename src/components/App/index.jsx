@@ -27,12 +27,7 @@ export default class App extends React.Component {
   }
 
   removeTodoListItem(recivedId) {
-    this.setState((state) => {
-      const newTodos = state.todos.slice();
-      const index = newTodos.findIndex((el) => el.id === recivedId);
-      newTodos.splice(index, 1);
-      return { todos: newTodos };
-    });
+    this.setState((state) => ({ todos: state.todos.filter((el) => el.id !== recivedId) }));
   }
 
   render() {
