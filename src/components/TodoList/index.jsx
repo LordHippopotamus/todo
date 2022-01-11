@@ -13,9 +13,6 @@ export default function TodoList(props) {
           name={el.name}
           description={el.description}
           color={el.color}
-          finish={el.finish}
-          warning={el.warning}
-          danger={el.danger}
           key={el.id}
           identifier={el.id}
           removeTodoListItem={removeTodoListItem}
@@ -35,9 +32,6 @@ TodoList.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
-    finish: PropTypes.string.isRequired,
-    warning: PropTypes.bool.isRequired,
-    danger: PropTypes.bool.isRequired,
   })).isRequired,
   removeTodoListItem: PropTypes.func.isRequired,
 };

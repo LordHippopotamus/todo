@@ -9,35 +9,10 @@ export default class App extends React.Component {
     this.state = {
       todos: [],
       id: 0,
-      date: new Date(),
     };
 
     this.addTodoListItem = this.addTodoListItem.bind(this);
     this.removeTodoListItem = this.removeTodoListItem.bind(this);
-  }
-
-  componentDidMount() {
-    this.timer = setInterval(() => {
-      const { date, todos } = this.state;
-      const newTodos = todos.slice();
-
-      todos.forEach((todo) => {
-        const currentMinutes = date.getHours() * 60 + date.getMinutes();
-        const todoMinutes = +todo.finish.slice(0, 2) * 60 + +todo.finish.slice(3, 5);
-        const index = todos.findIndex((el) => el.id === todo.id);
-        if (todoMinutes - currentMinutes < 5) newTodos[index].warning = true;
-        if (todoMinutes - currentMinutes < 0) newTodos[index].danger = true;
-      });
-
-      this.setState({
-        date: new Date(),
-        todos: newTodos,
-      });
-    }, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timer);
   }
 
   addTodoListItem(parametrs) {
@@ -48,9 +23,6 @@ export default class App extends React.Component {
         name: parametrs.name,
         description: parametrs.description,
         color: parametrs.color,
-        finish: parametrs.finish,
-        warning: false,
-        danger: false,
       });
       return {
         todos: newTodos,

@@ -11,7 +11,6 @@ export default class TodoForm extends React.Component {
       name: '',
       description: '',
       color: 'dark',
-      finish: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,24 +26,23 @@ export default class TodoForm extends React.Component {
 
     const { addTodoListItem } = this.props;
     const {
-      name, description, color, finish,
+      name, description, color,
     } = this.state;
 
     addTodoListItem({
-      name, description, color, finish,
+      name, description, color,
     });
 
     this.setState({
       name: '',
       description: '',
-      finish: '',
       color: 'dark',
     });
   }
 
   render() {
     const {
-      name, description, color, finish,
+      name, description, color,
     } = this.state;
 
     return (
@@ -85,22 +83,6 @@ export default class TodoForm extends React.Component {
             </Form.Select>
           </Col>
         </Row>
-
-        <Form.Group className="mb-3" controlId="description">
-          <Row>
-            <Form.Label column lg={1}>Finish in:</Form.Label>
-            <Col>
-              <Form.Control
-                className="w-auto"
-                type="time"
-                name="finish"
-                value={finish}
-                onChange={this.handleChange}
-                required
-              />
-            </Col>
-          </Row>
-        </Form.Group>
 
         <Button variant="primary" type="submit">
           Add
